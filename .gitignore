@@ -18,6 +18,4 @@ _ReSharper.*/
 deploy
 deploy/*
 packages/
-imagespng/
-fil_meteo.xml
 _*.md
