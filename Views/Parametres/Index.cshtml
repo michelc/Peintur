@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Peintur.Models.ParametreIndex>
+
+@{
+    ViewBag.Title = "Liste des " + ViewBag.ParametreType + "s";
+}
+
+<h2>
+    @Html.ActionLink("Peintur", "Index")
+    /
+    @ViewBag.Title
+</h2>
+
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="bg-pink">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th class="d-print-none">
+                @Html.ActionLink("Ajouter", "Create", null, new { @class = "btn btn-sm btn-success" })
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td class="d-print-none">
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-sm btn-warning" })
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-sm btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

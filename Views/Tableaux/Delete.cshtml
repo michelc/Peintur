@@ -1,0 +1,28 @@
+﻿@model Peintur.Models.Tableau
+
+@{
+    ViewBag.Title = "Supprimer un tableau";
+}
+
+<h2>
+    @Html.ActionLink("Peintur", "Index")
+    /
+    @ViewBag.Title
+</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.Partial("_Display", Model)
+
+        <div class="form-group row">
+            <div class="col-md-10 offset-2">
+                <input type="submit" value="Confirmer la suppression !" class="btn btn-default btn-danger" />
+                @Html.ActionLink("Annuler", "Index", null, new { @class = "btn btn-outline-dark" })
+            </div>
+        </div>
+    </div>
+}

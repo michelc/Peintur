@@ -1,0 +1,21 @@
+﻿@model Peintur.Models.Parametre
+
+@{
+    ViewBag.Title = "Détail d'un " + ViewBag.ParametreType;
+}
+
+<h2>
+    @Html.ActionLink("Peintur", "Index")
+    /
+    @ViewBag.Title
+</h2>
+
+<div class="form-horizontal">
+    @Html.Partial("_Display", Model)
+
+    <div class="form-group row">
+        <div class="col-md-10 offset-2">
+            @Html.ActionLink("Quitter", "Index", null, new { @class = "btn btn-outline-dark" })
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model Peintur.Models.Tableau
+
+@{
+    ViewBag.Title = "Détail d'un tableau";
+}
+
+<h2>
+    @Html.ActionLink("Peintur", "Index")
+    /
+    @ViewBag.Title
+    <div class="float-right">
+        @Html.ActionLink("«--", "Previous", new { id = Model.Tableau_ID })
+        /
+        @Html.ActionLink("--»", "Next", new { id = Model.Tableau_ID })
+    </div>
+</h2>
+
+<div class="form-horizontal">
+    @Html.Partial("_Display", Model)
+
+    <div class="form-group row">
+        <div class="col-md-10 offset-2">
+            @Html.ActionLink("Quitter", "Index", null, new { @class = "btn btn-outline-dark" })
+            <div class="float-right">
+                @Html.ActionLink("Modifier", "Edit", new { id = Model.Tableau_ID }, new { @class = "btn btn-sm btn-warning" })
+                @Html.ActionLink("Supprimer", "Delete", new { id = Model.Tableau_ID }, new { @class = "btn btn-sm btn-danger" })
+            </div>
+        </div>
+    </div>
+</div>

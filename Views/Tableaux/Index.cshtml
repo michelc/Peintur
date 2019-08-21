@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Peintur.Models.TableauIndex>
+
+@{
+    ViewBag.Title = "Liste des tableaux";
+}
+
+<h2>
+    @Html.ActionLink("Peintur", "Index")
+    /
+    @(ViewBag.Title + " (" + Model.Count().ToString() + ")")
+</h2>
+
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="bg-pink">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Annee)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Technique)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Sujet)
+            </th>
+            <th class="d-print-none">
+                @Html.ActionLink("Ajouter", "Create", null, new { @class = "btn btn-sm btn-success" })
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td style="width: 45% !important; ">
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Annee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Technique)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sujet)
+            </td>
+            <td class="d-print-none">
+                @Html.ActionLink("Afficher", "Details", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-primary" })
+                @Html.ActionLink("Modifier", "Edit", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-warning" })
+                @Html.ActionLink("Supprimer", "Delete", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>

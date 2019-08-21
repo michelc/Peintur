@@ -1,0 +1,23 @@
+﻿# Fichiers à ignorer
+.vs/
+*resharper.user
+[Aa]pp_[Dd]ata/
+[Dd]ebug/
+[Rr]elease/
+build/
+[Bb]in/
+[Oo]bj/
+PublishProfiles/
+[Tt]est[Rr]esults/
+_bin_deployableAssemblies/
+*.secret
+*.suo
+*.cache
+_ReSharper.*/
+*.user
+deploy
+deploy/*
+packages/
+imagespng/
+fil_meteo.xml
+_*.md
