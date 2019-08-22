@@ -30,6 +30,5 @@ namespace Peintur.Models
         {
             return linq.ProjectTo<T>(AutoMap.Config);
         }
-
     }
 }
