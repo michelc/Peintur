@@ -39,7 +39,7 @@
                 Taille
             </th>
             <th scope="col">
-                
+
             </th>
         </tr>
     </thead>
@@ -47,72 +47,72 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td style="width: 30%">
-                @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
-            </td>
-            <td>
-                @(item.Annee == "1900" ? "" : item.Annee)
-            </td>
-            <td>
-                @(item.Technique == "(autre)" ? "" : item.Technique)
-            </td>
-            <td>
-                @(item.Sujet == "(autre)" ? "" : item.Sujet)
-            </td>
-            <td>
-                @switch (item.Support)
-                {
-                    case "(autre)":
-                        break;
-                    case "Toile":
-                        <span class="text-secondary font-italic">@item.Support</span>
-                        break;
-                    default:
-                        @item.Support
-                        break;
-                }
-            </td>
-            <td>
-                @switch (item.Cadre)
-                {
-                    case "(autre)":
-                        break;
-                    case "Aucun":
-                        <span class="text-secondary font-italic">@item.Cadre</span>
-                        break;
-                    default:
-                        @item.Cadre
-                        break;
-                }
-            </td>
-            <td>
-                @(item.Stockage == "(autre)" ? "" : item.Stockage)
-            </td>
-            <td>
-                @switch (item.Taille)
-                {
-                    case "(autre)":
-                        break;
-                    default:
-                        if (item.Points == 0)
-                        {
-                            <span class="font-weight-bolder">@item.Taille.Replace(" ", "")</span>
-                        }
-                        else
-                        {
-                            @item.Taille.Replace(" ", "")
-                        }
-                        break;
-                }
-            </td>
-            <td>
-                @if (!string.IsNullOrEmpty(item.Commentaires))
-                {
-                    @("*")
-                }
-            </td>
-        </tr>
+            <tr>
+                <td style="width: 30%">
+                    @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
+                </td>
+                <td>
+                    @(item.Annee == "1900" ? "" : item.Annee)
+                </td>
+                <td>
+                    @(item.Technique == "(autre)" ? "" : item.Technique)
+                </td>
+                <td>
+                    @(item.Sujet == "(autre)" ? "" : item.Sujet)
+                </td>
+                <td>
+                    @switch (item.Support)
+                    {
+                        case "(autre)":
+                            break;
+                        case "Toile":
+                            <span class="text-secondary font-italic">@item.Support</span>
+                            break;
+                        default:
+                            @item.Support
+                            break;
+                    }
+                </td>
+                <td>
+                    @switch (item.Cadre)
+                    {
+                        case "(autre)":
+                            break;
+                        case "Aucun":
+                            <span class="text-secondary font-italic">@item.Cadre</span>
+                            break;
+                        default:
+                            @item.Cadre
+                            break;
+                    }
+                </td>
+                <td>
+                    @(item.Stockage == "(autre)" ? "" : item.Stockage)
+                </td>
+                <td>
+                    @switch (item.Taille)
+                    {
+                        case "(autre)":
+                            break;
+                        default:
+                            if (item.Points == 0)
+                            {
+                                <span class="font-weight-bolder">@item.Taille.Replace(" ", "")</span>
+                            }
+                            else
+                            {
+                                @item.Taille.Replace(" ", "")
+                            }
+                            break;
+                    }
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.Commentaires))
+                    {
+                        @("*")
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 

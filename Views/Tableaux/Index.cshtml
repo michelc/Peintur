@@ -38,24 +38,24 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td style="width: 50%; ">
-                @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Annee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Technique)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sujet)
-            </td>
-            <td class="d-print-none">
-                @Html.ActionLink("Modifier", "Edit", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-warning" })
-                @Html.ActionLink("Supprimer", "Delete", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-danger" })
-            </td>
-        </tr>
+            <tr>
+                <td style="width: 50%; ">
+                    @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Annee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Technique)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sujet)
+                </td>
+                <td class="d-print-none">
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-warning" })
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-danger" })
+                </td>
+            </tr>
         }
     </tbody>
 
