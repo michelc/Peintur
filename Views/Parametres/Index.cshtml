@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Peintur.Models.ParametreIndex>
+﻿@model Peintur.Models.ParametreModel
 
 @{
-    ViewBag.Title = "Liste des " + ViewBag.ParametreType + "s";
+    ViewBag.Title = "Liste des " + Model.Type + "s";
 }
 
 <h2>
@@ -16,6 +16,12 @@
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Nom)
             </th>
+            @if (Model.Complement != null)
+            {
+                <th>
+                    @Model.Complement
+                </th>
+            }
             <th class="d-print-none">
                 @Html.ActionLink("Ajouter", "Create", null, new { @class = "btn btn-sm btn-success" })
             </th>
@@ -23,12 +29,18 @@
     </thead>
 
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Parametres)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nom)
                 </td>
+                @if (Model.Complement != null)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Valeur)
+                    </td>
+                }
                 <td class="d-print-none">
                     @Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-sm btn-warning" })
                     @Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-sm btn-danger" })

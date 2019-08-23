@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Peintur.Models
 {
@@ -21,6 +22,22 @@ namespace Peintur.Models
         public int ID { get; set; }
 
         public string Nom { get; set; }
+        public int? Valeur { get; set; }
+    }
 
+    public class ParametreModel
+    {
+        public string Type { get; set; }
+
+        public List<ParametreIndex> Parametres { get; set; }
+
+        public int ID { get; set; }
+
+        [Display(Name = "Libellé")]
+        public string Nom { get; set; }
+
+        public string Complement { get; set; }
+
+        public int Valeur { get; set; }
     }
 }

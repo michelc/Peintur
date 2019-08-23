@@ -11,12 +11,15 @@ namespace Peintur.Controllers
     public class ParametresController<T> : Controller where T : Parametre, new()
     {
         private PeinturContext db = new PeinturContext();
+        private ParametreModel ViewModel = new ParametreModel();
 
         protected override void OnActionExecuting(ActionExecutingContext context)
         {
             var type = context.RouteData.Values["controller"].ToString().ToLower();
             type = type.Substring(0, type.Length - 1);
-            ViewBag.ParametreType = type;
+            ViewModel.Type = type == "cote" ? "côte" : type;
+            if (type == "taille") ViewModel.Complement = "Points";
+            if (type == "cote") ViewModel.Complement = "Côte";
 
             base.OnActionExecuting(context);
         }
@@ -28,25 +31,14 @@ namespace Peintur.Controllers
                           .OrderBy(p => p.Nom)
                           .MapTo<ParametreIndex>();
 
-            return ViewAction(await model.ToListAsync());
-        }
-
-        // GET: Parametres/Type/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-            var model = await db.Set<T>().FindAsync(id);
-            if (model == null) return HttpNotFound();
-
-            return ViewAction( model);
+            ViewModel.Parametres = await model.ToListAsync();
+            return ViewAction(ViewModel);
         }
 
         // GET: Parametres/Type/Create
         public ActionResult Create()
         {
-            return ViewAction();
+            return ViewAction(ViewModel);
         }
 
         // POST: Parametres/Type/Create
@@ -58,13 +50,16 @@ namespace Peintur.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.Valeur = ViewModel.Complement == null ? null : model.Valeur;
                 db.Set<T>().Add(model);
                 await db.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }
 
-            return ViewAction(model);
+            ViewModel.Nom = model.Nom;
+            ViewModel.Valeur = model.Valeur.GetValueOrDefault();
+            return ViewAction(ViewModel);
         }
 
         // GET: Parametres/Type/Edit/5
@@ -76,7 +71,10 @@ namespace Peintur.Controllers
             var model = await db.Set<T>().FindAsync(id);
             if (model == null) return HttpNotFound();
 
-            return ViewAction(model);
+            ViewModel.ID = model.ID;
+            ViewModel.Nom = model.Nom;
+            ViewModel.Valeur = model.Valeur.GetValueOrDefault();
+            return ViewAction(ViewModel);
         }
 
         // POST: Parametres/Type/Edit/5
@@ -89,12 +87,16 @@ namespace Peintur.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(model).State = EntityState.Modified;
+                model.Valeur = ViewModel.Complement == null ? null : model.Valeur;
                 await db.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }
 
-            return ViewAction(model);
+            ViewModel.ID = model.ID;
+            ViewModel.Nom = model.Nom;
+            ViewModel.Valeur = model.Valeur.GetValueOrDefault();
+            return ViewAction(ViewModel);
         }
 
         // GET: Parametres/Type/Delete/5
@@ -106,7 +108,10 @@ namespace Peintur.Controllers
             var model = await db.Set<T>().FindAsync(id);
             if (model == null) return HttpNotFound();
 
-            return ViewAction(model);
+            ViewModel.ID = model.ID;
+            ViewModel.Nom = model.Nom;
+            ViewModel.Valeur = model.Valeur.GetValueOrDefault();
+            return ViewAction(ViewModel);
         }
 
         // POST: Parametres/Type/Delete/5
