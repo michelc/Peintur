@@ -28,7 +28,7 @@ namespace Peintur.Controllers
                           .OrderBy(p => p.Nom)
                           .MapTo<ParametreIndex>();
 
-            return View("~/Views/Parametres/Index.cshtml", await model.ToListAsync());
+            return ViewAction(await model.ToListAsync());
         }
 
         // GET: Parametres/Type/Details/5
@@ -40,13 +40,13 @@ namespace Peintur.Controllers
             var model = await db.Set<T>().FindAsync(id);
             if (model == null) return HttpNotFound();
 
-            return View("~/Views/Parametres/Details.cshtml", model);
+            return ViewAction( model);
         }
 
         // GET: Parametres/Type/Create
         public ActionResult Create()
         {
-            return View("~/Views/Parametres/Create.cshtml");
+            return ViewAction();
         }
 
         // POST: Parametres/Type/Create
@@ -64,7 +64,7 @@ namespace Peintur.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View("~/Views/Parametres/Create.cshtml", model);
+            return ViewAction(model);
         }
 
         // GET: Parametres/Type/Edit/5
@@ -76,7 +76,7 @@ namespace Peintur.Controllers
             var model = await db.Set<T>().FindAsync(id);
             if (model == null) return HttpNotFound();
 
-            return View("~/Views/Parametres/Edit.cshtml", model);
+            return ViewAction(model);
         }
 
         // POST: Parametres/Type/Edit/5
@@ -94,7 +94,7 @@ namespace Peintur.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View("~/Views/Parametres/Edit.cshtml");
+            return ViewAction(model);
         }
 
         // GET: Parametres/Type/Delete/5
@@ -106,7 +106,7 @@ namespace Peintur.Controllers
             var model = await db.Set<T>().FindAsync(id);
             if (model == null) return HttpNotFound();
 
-            return View("~/Views/Parametres/Delete.cshtml", model);
+            return ViewAction(model);
         }
 
         // POST: Parametres/Type/Delete/5
@@ -127,6 +127,14 @@ namespace Peintur.Controllers
                 db.Dispose();
 
             base.Dispose(disposing);
+        }
+
+        private ViewResult ViewAction(object model = null)
+        {
+            var action = base.RouteData.Values["action"].ToString();
+            var view = "~/Views/Parametres/" + action + ".cshtml";
+
+            return base.View(view, model);
         }
     }
 
