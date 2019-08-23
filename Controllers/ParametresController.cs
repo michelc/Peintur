@@ -8,32 +8,27 @@ using Peintur.Models;
 
 namespace Peintur.Controllers
 {
-    public class ParametresController : Controller
+    public class ParametresController<T> : Controller where T : Parametre, new()
     {
         private PeinturContext db = new PeinturContext();
 
-        //https://stackoverflow.com/questions/38372618/multiple-tables-with-same-structure-entity-framework
-        //https://weblogs.asp.net/manavi/inheritance-mapping-strategies-with-entity-framework-code-first-ctp5-part-3-table-per-concrete-type-tpc-and-choosing-strategy-guidelines
-
-        //https://stackoverflow.com/questions/27022167/generic-crud-controllers-and-views
-        //https://forums.asp.net/t/2141236.aspx?Is+it+okay+to+create+generic+base+controller+to+get+rid+of+CRUD+boilerplate+logic+
-
         protected override void OnActionExecuting(ActionExecutingContext context)
         {
-            var type = context.RouteData.Values["type"].ToString().ToLower();
+            var type = context.RouteData.Values["controller"].ToString().ToLower();
             type = type.Substring(0, type.Length - 1);
             ViewBag.ParametreType = type;
 
             base.OnActionExecuting(context);
         }
+
         // GET: Parametres
         public async Task<ActionResult> Index()
         {
-            var model = db.Techniques
+            var model = db.Set<T>()
                           .OrderBy(p => p.Nom)
                           .MapTo<ParametreIndex>();
 
-            return View(await model.ToListAsync());
+            return View("~/Views/Parametres/Index.cshtml", await model.ToListAsync());
         }
 
         // GET: Parametres/Type/Details/5
@@ -42,16 +37,16 @@ namespace Peintur.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var model = await db.Techniques.FindAsync(id);
+            var model = await db.Set<T>().FindAsync(id);
             if (model == null) return HttpNotFound();
 
-            return View(model);
+            return View("~/Views/Parametres/Details.cshtml", model);
         }
 
         // GET: Parametres/Type/Create
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/Parametres/Create.cshtml");
         }
 
         // POST: Parametres/Type/Create
@@ -59,17 +54,17 @@ namespace Peintur.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Nom,Valeur")] Technique model)
+        public async Task<ActionResult> Create([Bind(Include = "ID,Nom,Valeur")] T model)
         {
             if (ModelState.IsValid)
             {
-                db.Techniques.Add(model);
+                db.Set<T>().Add(model);
                 await db.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }
 
-            return View(model);
+            return View("~/Views/Parametres/Create.cshtml", model);
         }
 
         // GET: Parametres/Type/Edit/5
@@ -78,10 +73,10 @@ namespace Peintur.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var model = await db.Techniques.FindAsync(id);
+            var model = await db.Set<T>().FindAsync(id);
             if (model == null) return HttpNotFound();
 
-            return View(model);
+            return View("~/Views/Parametres/Edit.cshtml", model);
         }
 
         // POST: Parametres/Type/Edit/5
@@ -89,7 +84,7 @@ namespace Peintur.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,Nom,Valeur")] Technique model)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Nom,Valeur")] T model)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +93,8 @@ namespace Peintur.Controllers
 
                 return RedirectToAction("Index");
             }
-            return View(model);
+
+            return View("~/Views/Parametres/Edit.cshtml");
         }
 
         // GET: Parametres/Type/Delete/5
@@ -107,10 +103,10 @@ namespace Peintur.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var model = await db.Techniques.FindAsync(id);
+            var model = await db.Set<T>().FindAsync(id);
             if (model == null) return HttpNotFound();
 
-            return View(model);
+            return View("~/Views/Parametres/Delete.cshtml", model);
         }
 
         // POST: Parametres/Type/Delete/5
@@ -118,8 +114,8 @@ namespace Peintur.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            var model = await db.Techniques.FindAsync(id);
-            db.Techniques.Remove(model);
+            var model = await db.Set<T>().FindAsync(id);
+            db.Set<T>().Remove(model);
             await db.SaveChangesAsync();
 
             return RedirectToAction("Index");
@@ -130,10 +126,15 @@ namespace Peintur.Controllers
             if (disposing)
                 db.Dispose();
 
-            var c = base.ControllerContext.RouteData.Values;// ["controller"].ToString();
-            
-
             base.Dispose(disposing);
         }
     }
+
+    public class TechniquesController : ParametresController<Technique> { }
+    public class SujetsController : ParametresController<Sujet> { }
+    public class SupportsController : ParametresController<Support> { }
+    public class CadresController : ParametresController<Cadre> { }
+    public class StockagesController : ParametresController<Stockage> { }
+    public class TaillesController : ParametresController<Taille> { }
+    public class CotesController : ParametresController<Cote> { }
 }

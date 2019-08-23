@@ -16,12 +16,6 @@ namespace Peintur
             routes.LowercaseUrls = true;
 
             routes.MapRoute(
-                name: "Parameter",
-                url: "parametres/{type}/{action}/{id}",
-                defaults: new { controller = "Parametres", type = "Aucuns", action = "Index", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Tableaux", action = "Index", id = UrlParameter.Optional, more = UrlParameter.Optional }
