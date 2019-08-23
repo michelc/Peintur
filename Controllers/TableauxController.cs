@@ -92,7 +92,7 @@ namespace Peintur.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Tableau_ID,Nom,Annee,Technique,Sujet,Support,Cadre,Stockage,Taille,Points,Poids,Commentaires")] Tableau tableau)
+        public async Task<ActionResult> Create([Bind(Include = "Nom,Annee,Technique,Sujet,Support,Cadre,Stockage,Taille,Points,Poids,Commentaires")] Tableau tableau)
         {
             if (ModelState.IsValid)
             {

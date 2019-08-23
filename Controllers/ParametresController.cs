@@ -54,7 +54,7 @@ namespace Peintur.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Nom,Valeur")] T model)
+        public async Task<ActionResult> Create([Bind(Include = "Nom,Valeur")] T model)
         {
             if (ModelState.IsValid)
             {
