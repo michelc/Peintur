@@ -24,12 +24,24 @@ namespace Peintur.Controllers
         }
 
 
-        // GET: Tableaux
+        // GET: Tableaux/List
         public async Task<ActionResult> Print()
         {
             var model = db.Tableaux
                           .OrderBy(t => t.Nom)
                           .ThenBy(t => t.Tableau_ID);
+
+            return View(await model.ToListAsync());
+        }
+
+
+        // GET: Tableaux/Prix
+        public async Task<ActionResult> Prix()
+        {
+            var model = db.Tableaux
+                          .OrderBy(t => t.Nom)
+                          .ThenBy(t => t.Tableau_ID)
+                          .MapTo<TableauPrix>();
 
             return View(await model.ToListAsync());
         }

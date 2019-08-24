@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Peintur.Models.TableauPrix>
+
+@{
+    ViewBag.Title = "Liste des prix";
+}
+
+<h2>
+    @(ViewBag.Title + " (" + Model.Count().ToString() + ")")
+</h2>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="bg-pink">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Technique)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Taille)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Cadre)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Points)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width: 50%; ">
+                    @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Technique)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Taille)
+                </td>
+                <td>
+                    @(item.Cadre == "Non" ? "" : item.Cadre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Points)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

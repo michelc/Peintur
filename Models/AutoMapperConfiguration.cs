@@ -23,6 +23,7 @@ namespace Peintur.Models
             // Entités vers ViewModels Index
 
             config.CreateMap<Tableau, TableauIndex>();
+            config.CreateMap<Tableau, TableauPrix>();
             config.CreateMap<Technique, ParametreIndex>();
             config.CreateMap<Sujet, ParametreIndex>();
             config.CreateMap<Support, ParametreIndex>();

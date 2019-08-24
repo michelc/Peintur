@@ -17,6 +17,22 @@ namespace Peintur.Models
         public string Sujet { get; set; }
     }
 
+    public class TableauPrix
+    {
+        public int Tableau_ID { get; set; }
+
+        public string Nom { get; set; }
+
+        public string Technique { get; set; }
+
+        public string Taille { get; set; }
+
+        public string Cadre { get; set; }
+
+        public string Points { get; set; }
+    }
+
+
     public class ParametreIndex
     {
         public int ID { get; set; }
