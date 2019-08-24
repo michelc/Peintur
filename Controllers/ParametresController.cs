@@ -33,6 +33,8 @@ namespace Peintur.Controllers
                           .MapTo<ParametreIndex>();
 
             ViewModel.Parametres = await model.ToListAsync();
+            if (ViewModel.Type == "côte")
+                ViewModel.Parametres.FirstOrDefault(x => x.Nom.StartsWith("Officiel")).Nom += " *";
             return ViewAction(ViewModel);
         }
 
@@ -95,7 +97,8 @@ namespace Peintur.Controllers
                 model.Valeur = ViewModel.Complement == null ? null : input.Valeur;
                 await db.SaveChangesAsync();
 
-                db.UpdateParametres(ViewModel.Type, avant, model.Nom);
+                if (ViewModel.Type != "côte")
+                    db.UpdateParametres(ViewModel.Type, avant, model.Nom);
                 if (ViewModel.Type == "taille")
                     db.UpdatePoints(model.Nom, model.Valeur.Value);
 

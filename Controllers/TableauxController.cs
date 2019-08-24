@@ -44,7 +44,7 @@ namespace Peintur.Controllers
                           .MapTo<TableauPrix>()
                           .ToListAsync();
 
-            var cote = await db.Cotes.FirstOrDefaultAsync(x => x.Nom.StartsWith("Offi"));
+            var cote = await db.Cotes.FirstOrDefaultAsync(x => x.Nom.StartsWith("Officiel"));
             model.ForEach(x => x.Points = x.Points * cote.Valeur.Value);
 
             return View(model);
@@ -64,7 +64,7 @@ namespace Peintur.Controllers
             var prix = "";
             foreach (var cote in cotes)
             {
-                if (cote.Nom.StartsWith("Offi"))
+                if (cote.Nom.StartsWith("Officiel"))
                     prix = string.Format(" => Prix = {0} €", cote.Valeur.Value * tableau.Points) + prix;
                 else
                     prix += string.Format(" &nbsp; / &nbsp; {0} = {1}", cote.Nom, cote.Valeur.Value * tableau.Points);
