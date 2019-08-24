@@ -42,12 +42,13 @@
         </tr>
     </thead>
 
-    <tbody>
+    <tbody class="">
         @foreach (var item in Model)
         {
             <tr>
                 <td style="width: 30%">
                     @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
+                    @Html.ActionLink("M", "Edit", new { id = item.Tableau_ID }, new { @class = "badge-pill badge-warning" })
                 </td>
                 <td>
                     @(item.Annee == "1900" ? "" : item.Annee)
