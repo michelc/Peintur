@@ -179,6 +179,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="libman.json" />
+    <Content Include="Views\Shared\EditorTemplates\RadioButtonList.cshtml" />
     <None Include="Views\Shared\_FormScripts.cshtml" />
     <Content Include="Views\Tableaux\Create.cshtml" />
     <Content Include="Views\Tableaux\Delete.cshtml" />
@@ -263,7 +264,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
-    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
