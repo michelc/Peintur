@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -48,6 +49,7 @@ namespace Peintur.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Nom,Valeur")] T model)
         {
+            TailleCheck(model);
             if (ModelState.IsValid)
             {
                 model.Valeur = ViewModel.Complement == null ? null : model.Valeur;
@@ -84,6 +86,7 @@ namespace Peintur.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "ID,Nom,Valeur")] T input)
         {
+            TailleCheck(input);
             if (ModelState.IsValid)
             {
                 var model = await db.Set<T>().FindAsync(input.ID);
@@ -91,7 +94,7 @@ namespace Peintur.Controllers
                 model.Nom = input.Nom;
                 model.Valeur = ViewModel.Complement == null ? null : input.Valeur;
                 await db.SaveChangesAsync();
- 
+
                 db.UpdateParametres(ViewModel.Type, avant, model.Nom);
                 if (ViewModel.Type == "taille")
                     db.UpdatePoints(model.Nom, model.Valeur.Value);
@@ -146,6 +149,53 @@ namespace Peintur.Controllers
             var view = "~/Views/Parametres/" + action + ".cshtml";
 
             return base.View(view, model);
+        }
+
+        private void TailleCheck(T model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (ViewModel.Type == "taille")
+                {
+                    var nom = TailleFormat(model.Nom);
+                    if (nom == "")
+                        ModelState.AddModelError("", "La taille doit être de la forme 'GrandCoté x PetitCoté'");
+                    else
+                        model.Nom = nom;
+                }
+            }
+        }
+
+        private string TailleFormat(string nom)
+        {
+            // Supprime les espaces et passe tout en minuscule
+            nom = nom.Replace(" ", "").ToLower();
+
+            // Taille doit être de la forme "coté x coté"
+            if (!nom.Contains("x")) return "";
+            var parties = nom.Split('x');
+            if (parties.Length != 2) return "";
+
+            // 1° côté doit être un entier supérieur à zéro
+            var partie0 = 0;
+            int.TryParse(parties[0], out partie0);
+            if (partie0 <= 0) return "";
+            if (partie0.ToString() != parties[0]) return "";
+
+            // 2° côté doit être un entier supérieur à zéro
+            var partie1 = 0;
+            int.TryParse(parties[1], out partie1);
+            if (partie1 <= 0) return "";
+            if (partie1.ToString() != parties[1]) return "";
+
+            // Place le plus grand côté en premier
+            if (partie0 > partie1)
+                nom = parties[0] + " x " + parties[1];
+            else
+                nom = parties[1] + " x " + parties[0];
+
+            // Renvoie une taille correcte
+            return nom;
         }
     }
 
