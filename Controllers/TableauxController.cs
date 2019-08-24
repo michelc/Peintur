@@ -55,6 +55,18 @@ namespace Peintur.Controllers
             var tableau = await db.Tableaux.FindAsync(id);
             if (tableau == null) return HttpNotFound();
 
+            // Calcul des prix
+            var cotes = await db.Cotes.OrderBy(x => x.Nom).ToListAsync();
+            var prix = "";
+            foreach (var cote in cotes)
+            {
+                if (cote.Nom.StartsWith("Offi"))
+                    prix = string.Format(" => Prix = {0} €", cote.Valeur.Value * tableau.Points) + prix;
+                else
+                    prix += string.Format(" &nbsp; / &nbsp; {0} = {1}", cote.Nom, cote.Valeur.Value * tableau.Points);
+            }
+            ViewBag.Prix = prix;
+
             return View(tableau);
         }
 
