@@ -179,6 +179,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="libman.json" />
+    <None Include="Views\Shared\_FormScripts.cshtml" />
     <Content Include="Views\Tableaux\Create.cshtml" />
     <Content Include="Views\Tableaux\Delete.cshtml" />
     <Content Include="Views\Tableaux\Details.cshtml" />
@@ -194,7 +195,6 @@
     <Content Include="Views\Parametres\Edit.cshtml" />
     <Content Include="Views\Parametres\Index.cshtml" />
     <Content Include="Views\Tableaux\Print.cshtml" />
-    <Content Include="Views\Shared\_FormScripts.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

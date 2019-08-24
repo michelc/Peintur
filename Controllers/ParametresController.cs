@@ -82,20 +82,26 @@ namespace Peintur.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,Nom,Valeur")] T model)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Nom,Valeur")] T input)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(model).State = EntityState.Modified;
-                model.Valeur = ViewModel.Complement == null ? null : model.Valeur;
+                var model = await db.Set<T>().FindAsync(input.ID);
+                var avant = model.Nom;
+                model.Nom = input.Nom;
+                model.Valeur = ViewModel.Complement == null ? null : input.Valeur;
                 await db.SaveChangesAsync();
+ 
+                db.UpdateParametres(ViewModel.Type, avant, model.Nom);
+                if (ViewModel.Type == "taille")
+                    db.UpdatePoints(model.Nom, model.Valeur.Value);
 
                 return RedirectToAction("Index");
             }
 
-            ViewModel.ID = model.ID;
-            ViewModel.Nom = model.Nom;
-            ViewModel.Valeur = model.Valeur.GetValueOrDefault();
+            ViewModel.ID = input.ID;
+            ViewModel.Nom = input.Nom;
+            ViewModel.Valeur = input.Valeur.GetValueOrDefault();
             return ViewAction(ViewModel);
         }
 

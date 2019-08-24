@@ -37,6 +37,23 @@ namespace Peintur.Models
                     break;
             }
         }
+
+        private void ExecuteSql(string sql)
+        {
+            this.Database.ExecuteSqlCommand(sql);
+        }
+
+        public void UpdateParametres(string type, string avant, string apres)
+        {
+            var sql = string.Format("UPDATE Tableaux SET {0} = '{2}' WHERE {0} = '{1}'", type, avant.Replace("'", "''"), apres.Replace("'", "''"));
+            this.ExecuteSql(sql);
+        }
+
+        public void UpdatePoints(string taille, int points)
+        {
+            var sql = string.Format("UPDATE Tableaux SET Points = {1} WHERE Taille = '{0}'", taille.Replace("'", "''"), points);
+            this.ExecuteSql(sql);
+        }
     }
 
     public class Configuration : DbMigrationsConfiguration<PeinturContext>
