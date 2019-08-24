@@ -20,12 +20,13 @@
         <div class="form-group row">
             <div class="col-md-10 offset-2">
                 <input type="submit" value="Modifier" class="btn btn-default btn-warning" />
-                @Html.ActionLink("Annuler", "Index", null, new { @class = "btn btn-outline-dark" })
+                @Html.ActionLink("Annuler", "Index", null, new { @class = "btn btn-outline-dark cancel" })
             </div>
         </div>
     </div>
 }
 
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@section JavaScript
+{
+    @Html.Partial("_FormScripts")
+}
