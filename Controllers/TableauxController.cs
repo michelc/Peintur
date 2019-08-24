@@ -38,12 +38,16 @@ namespace Peintur.Controllers
         // GET: Tableaux/Prix
         public async Task<ActionResult> Prix()
         {
-            var model = db.Tableaux
+            var model = await db.Tableaux
                           .OrderBy(t => t.Nom)
                           .ThenBy(t => t.Tableau_ID)
-                          .MapTo<TableauPrix>();
+                          .MapTo<TableauPrix>()
+                          .ToListAsync();
 
-            return View(await model.ToListAsync());
+            var cote = await db.Cotes.FirstOrDefaultAsync(x => x.Nom.StartsWith("Offi"));
+            model.ForEach(x => x.Points = x.Points * cote.Valeur.Value);
+
+            return View(model);
         }
 
         // GET: Tableaux/Details/5

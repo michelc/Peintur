@@ -29,7 +29,8 @@ namespace Peintur.Models
 
         public string Cadre { get; set; }
 
-        public string Points { get; set; }
+        [Display(Name = "Prix")]
+        public int Points { get; set; }
     }
 
 
