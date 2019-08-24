@@ -48,7 +48,7 @@
             <tr>
                 <td style="width: 30%">
                     @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
-                    @Html.ActionLink("M", "Edit", new { id = item.Tableau_ID }, new { @class = "badge-pill badge-warning" })
+                    @Html.ActionLink("M", "Edit", new { id = item.Tableau_ID }, new { @class = "badge-pill badge-warning d-print-none" })
                 </td>
                 <td>
                     @(item.Annee == "1900" ? "" : item.Annee)
