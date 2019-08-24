@@ -49,11 +49,14 @@ namespace Peintur.Models
 
         public int ID { get; set; }
 
+        [Required]
+        [StringLength(20)]
         [Display(Name = "Libellé")]
         public string Nom { get; set; }
 
         public string Complement { get; set; }
 
+        [Range(1, 1000)]
         public int Valeur { get; set; }
     }
 }

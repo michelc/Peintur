@@ -196,6 +196,7 @@
     <Content Include="Views\Parametres\Index.cshtml" />
     <Content Include="Views\Tableaux\Print.cshtml" />
     <Content Include="Views\Tableaux\Prix.cshtml" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
