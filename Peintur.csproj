@@ -179,8 +179,9 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="libman.json" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap4.js" />
     <Content Include="Views\Shared\EditorTemplates\RadioButtonList.cshtml" />
-    <None Include="Views\Shared\_FormScripts.cshtml" />
+    <None Include="Views\Shared\_Form.cshtml" />
     <Content Include="Views\Tableaux\Create.cshtml" />
     <Content Include="Views\Tableaux\Delete.cshtml" />
     <Content Include="Views\Tableaux\Details.cshtml" />
