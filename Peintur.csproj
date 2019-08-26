@@ -181,7 +181,7 @@
     <Content Include="libman.json" />
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap4.js" />
     <Content Include="Views\Shared\EditorTemplates\RadioButtonList.cshtml" />
-    <None Include="Views\Shared\_Form.cshtml" />
+    <None Include="Views\Shared\Azerty.cshtml" />
     <Content Include="Views\Tableaux\Create.cshtml" />
     <Content Include="Views\Tableaux\Delete.cshtml" />
     <Content Include="Views\Tableaux\Details.cshtml" />
