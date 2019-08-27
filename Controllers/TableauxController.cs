@@ -218,6 +218,7 @@ namespace Peintur.Controllers
         {
             var data = list.OrderBy(x => x).ToList();
             data.Add("(autre)");
+            if (string.IsNullOrEmpty(Nom)) Nom = "(autre)";
             if (!data.Contains(Nom)) data.Insert(0, Nom);
             return new SelectList(data.Select(p => new { Id = p, Caption = p }), "Id", "Caption", Nom);
         }

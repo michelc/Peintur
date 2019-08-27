@@ -37,6 +37,12 @@ textarea {
     background-color: hotpink;
 }
 
-div.is-invalid {
+div.invalid-feedback {
     text-indent: 16.666667%;
 }
+
+/* Evite couleur sur label des boutons radio */
+.form-check-input[type="radio"].is-valid ~ .form-check-label {
+    color: #212529;
+}
+

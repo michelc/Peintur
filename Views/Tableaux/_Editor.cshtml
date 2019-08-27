@@ -16,38 +16,32 @@
 
 <div class="form-group row">
     @Html.LabelFor(model => model.Technique, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.DropDownListFor(model => model.Technique, (SelectList)ViewBag.Techniques, new { @class = "form-control col-md-3" })
-    @Html.ValidationMessageFor(model => model.Technique, "", new { @class = "offset-2" })
+    @Html.EditorFor(model => model.Technique)
 </div>
 
 <div class="form-group row">
     @Html.LabelFor(model => model.Sujet, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.DropDownListFor(model => model.Sujet, (SelectList)ViewBag.Sujets, new { @class = "form-control col-md-3" })
-    @Html.ValidationMessageFor(model => model.Sujet, "", new { @class = "offset-2" })
+    @Html.EditorFor(model => model.Sujet)
 </div>
 
 <div class="form-group row">
     @Html.LabelFor(model => model.Support, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.DropDownListFor(model => model.Support, (SelectList)ViewBag.Supports, new { @class = "form-control col-md-3" })
-    @Html.ValidationMessageFor(model => model.Support, "", new { @class = "offset-2" })
+    @Html.EditorFor(model => model.Support)
 </div>
 
 <div class="form-group row">
     @Html.LabelFor(model => model.Cadre, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.DropDownListFor(model => model.Cadre, (SelectList)ViewBag.Cadres, new { @class = "form-control col-md-3" })
-    @Html.ValidationMessageFor(model => model.Cadre, "", new { @class = "offset-2" })
+    @Html.EditorFor(model => model.Cadre)
 </div>
 
 <div class="form-group row">
     @Html.LabelFor(model => model.Stockage, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.DropDownListFor(model => model.Stockage, (SelectList)ViewBag.Stockages, new { @class = "form-control col-md-3" })
-    @Html.ValidationMessageFor(model => model.Stockage, "", new { @class = "offset-2" })
+    @Html.EditorFor(model => model.Stockage)
 </div>
 
 <div class="form-group row">
     @Html.LabelFor(model => model.Taille, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.DropDownListFor(model => model.Taille, (SelectList)ViewBag.Tailles, new { @class = "form-control col-md-3" })
-    @Html.ValidationMessageFor(model => model.Taille, "", new { @class = "offset-2" })
+    @Html.EditorFor(model => model.Taille)
 </div>
 
 <div class="form-group row">

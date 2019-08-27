@@ -3,13 +3,21 @@
 @{
     var fieldId = ViewData.TemplateInfo.GetFullHtmlFieldId("");
     var values = (SelectList)ViewData[fieldId + "s"];
-    var index = 0;
 }
 
-@foreach (var v in values)
+@if (values.Count() > 10)
 {
-    index++;
-    @Html.RadioButton("", v.Value, v.Selected, new { @id = @fieldId + "_" + @index })
-    <label class="control-label" for="@(fieldId + "_" + index)">@v.Text</label>
-    <span>&nbsp;&nbsp;</span>
+    @Html.DropDownListFor(model => model, values, new { @class = "form-control col-md-3" })
+}
+else
+{
+    var index = 0;
+    foreach (var v in values)
+    {
+        index++;
+        <div class="form-check form-check-inline">
+            @Html.RadioButton("", v.Value, v.Selected, new { @id = @fieldId + "_" + @index, @class = "form-check-input" })
+            <label class="form-check-label" for="@(fieldId + "_" + index)">@v.Text</label>
+        </div>
+    }
 }

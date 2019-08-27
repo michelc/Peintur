@@ -49,27 +49,33 @@ namespace Peintur.Models
 
         [Required]
         [StringLength(20)]
+        [UIHint("RadioButtonList")]
         public string Technique { get; set; }
 
         [Required]
         [StringLength(20)]
+        [UIHint("RadioButtonList")]
         public string Sujet { get; set; }
 
         [Required]
         [StringLength(20)]
+        [UIHint("RadioButtonList")]
         public string Support { get; set; }
 
         [Required]
         [StringLength(20)]
+        [UIHint("RadioButtonList")]
         public string Cadre { get; set; }
 
         [Required]
         [StringLength(20)]
+        [UIHint("RadioButtonList")]
         public string Stockage { get; set; }
 
         [Display(Name = "Taille (Gd x Pt)")]
         [Required]
         [StringLength(20)]
+        [UIHint("RadioButtonList")]
         public string Taille { get; set; }
 
         public int Points { get; set; }
