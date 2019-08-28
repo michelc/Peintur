@@ -1,6 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Routing;
 using Peintur.Models;
+using StackExchange.Profiling;
+using StackExchange.Profiling.EntityFramework6;
 
 namespace Peintur
 {
@@ -15,6 +18,18 @@ namespace Peintur
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             AutoMap.Configure();
+            MiniProfilerEF6.Initialize();
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            // if (Request.IsLocal) MiniProfiler.Start();
+            MiniProfiler.Start();
+        }
+
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            MiniProfiler.Stop();
         }
     }
 }
