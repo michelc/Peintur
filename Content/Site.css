@@ -34,18 +34,23 @@ textarea {
     opacity: 1;
 }
 
+/* Pink for table head background-color */
 .bg-pink {
     background-color: hotpink;
 }
 
-/* Evite couleur sur label des boutons radio */
+/* No "valid/success" color for radio buttons label */
 .form-check-input[type="radio"].is-valid ~ .form-check-label {
     color: #212529;
 }
 
-/* Mise en évidence du bouton radio sélectionné */
+/* Light weight for default radio buttons */
+.form-check-input[type="radio"] ~ .form-check-label {
+    font-weight: 100;
+}
+/* Normal weight for checked radio buttons */
 .form-check-input[type="radio"]:checked ~ .form-check-label {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 /* Hide validation summary with no errors */
@@ -61,4 +66,9 @@ textarea {
 /* Add a margin after error box */
 .validation-summary-errors {
     margin-bottom: 1.5rem;
+}
+
+/* Bold weight (but not too bold) for labels */
+.col-form-label {
+    font-weight: 600;
 }
