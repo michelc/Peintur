@@ -71,6 +71,7 @@ namespace Peintur.Controllers
             }
             ViewBag.Prix = prix;
 
+            LoadOptions(tableau);
             return View(tableau);
         }
 
