@@ -46,3 +46,7 @@ div.invalid-feedback {
     color: #212529;
 }
 
+/* Mise en évidence du bouton radio sélectionné */
+.form-check-input[type="radio"]:checked ~ .form-check-label {
+    font-weight: bold;
+}
