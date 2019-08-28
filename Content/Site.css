@@ -3,10 +3,11 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+/*  "container" for md and lg, but "container-fluid" for xs and sm */
+@media (max-width: 992px) {
+    .container {
+        max-width: 100% !important;
+    }
 }
 
 .navbar {
@@ -37,10 +38,6 @@ textarea {
     background-color: hotpink;
 }
 
-div.invalid-feedback {
-    text-indent: 16.666667%;
-}
-
 /* Evite couleur sur label des boutons radio */
 .form-check-input[type="radio"].is-valid ~ .form-check-label {
     color: #212529;
@@ -49,4 +46,19 @@ div.invalid-feedback {
 /* Mise en évidence du bouton radio sélectionné */
 .form-check-input[type="radio"]:checked ~ .form-check-label {
     font-weight: bold;
+}
+
+/* Hide validation summary with no errors */
+.validation-summary-valid {
+    display: none;
+}
+
+/* Remove margin after error list */
+.validation-summary-errors ul {
+    margin-bottom: 0;
+}
+
+/* Add a margin after error box */
+.validation-summary-errors {
+    margin-bottom: 1.5rem;
 }

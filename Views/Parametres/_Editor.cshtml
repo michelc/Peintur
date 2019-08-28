@@ -3,16 +3,18 @@
 @Html.HiddenFor(model => model.ID)
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control col-md-3" } })
-    @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "offset-2" })
+    @Html.LabelFor(model => model.Nom, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-3">
+        @Html.TextBoxFor(model => model.Nom, new { @class = "form-control" })
+    </div>
 </div>
 
 @if (Model.Complement != null)
 {
     <div class="form-group row">
-        @Html.LabelFor(model => model.Valeur, Model.Complement, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.EditorFor(model => model.Valeur, new { htmlAttributes = new { @class = "form-control col-md-2" } })
-        @Html.ValidationMessageFor(model => model.Valeur, "", new { @class = "offset-2" })
+        @Html.LabelFor(model => model.Valeur, Model.Complement, new { @class = "col-form-label col-sm-2" })
+        <div class="col-sm-2">
+            @Html.TextBoxFor(model => model.Valeur, new { @class = "form-control" })
+        </div>
     </div>
 }

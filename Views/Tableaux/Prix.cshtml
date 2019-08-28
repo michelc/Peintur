@@ -8,6 +8,7 @@
     @(ViewBag.Title + " (" + Model.Count().ToString() + ")")
 </h2>
 
+<div class="table-responsive-sm">
 <table class="table table-bordered table-striped table-hover">
 
     <thead class="bg-pink">
@@ -34,7 +35,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td style="width: 50%; ">
+                <td style="width: 50%">
                     @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
                 </td>
                 <td>
@@ -54,3 +55,4 @@
     </tbody>
 
 </table>
+</div>

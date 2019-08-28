@@ -8,6 +8,7 @@
     @(ViewBag.Title + " (" + Model.Count().ToString() + ")")
 </h2>
 
+<div class="table-responsive-sm">
 <table class="table table-bordered table-striped table-hover">
 
     <thead class="bg-pink">
@@ -15,13 +16,13 @@
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Nom)
             </th>
-            <th scope="col">
+            <th scope="col" class="d-none d-sm-table-cell">
                 @Html.DisplayNameFor(model => model.Annee)
             </th>
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Technique)
             </th>
-            <th scope="col">
+            <th scope="col" class="d-none d-sm-table-cell">
                 @Html.DisplayNameFor(model => model.Sujet)
             </th>
             <th class="d-print-none">
@@ -34,16 +35,16 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td style="width: 50%; ">
+                <td style="width: 50%">
                     @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
                 </td>
-                <td>
+                <td class="d-none d-sm-table-cell">
                     @Html.DisplayFor(modelItem => item.Annee)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Technique)
                 </td>
-                <td>
+                <td class="d-none d-sm-table-cell">
                     @Html.DisplayFor(modelItem => item.Sujet)
                 </td>
                 <td class="d-print-none">
@@ -54,3 +55,4 @@
     </tbody>
 
 </table>
+</div>

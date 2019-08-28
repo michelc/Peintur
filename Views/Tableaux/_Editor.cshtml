@@ -3,55 +3,71 @@
 @Html.HiddenFor(model => model.Tableau_ID)
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control col-md-9" } })
-    @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "offset-2" })
+    @Html.LabelFor(model => model.Nom, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-10">
+        @Html.TextBoxFor(model => model.Nom, new { @class = "form-control" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Annee, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Annee, new { htmlAttributes = new { @class = "form-control col-md-2" } })
-    @Html.ValidationMessageFor(model => model.Annee, "", new { @class = "offset-2" })
+    @Html.LabelFor(model => model.Annee, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-2">
+        @Html.TextBoxFor(model => model.Annee, new { @class = "form-control" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Technique, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Technique)
+    @Html.LabelFor(model => model.Technique, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-10">
+        @Html.EditorFor(model => model.Technique)
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Sujet, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Sujet)
+    @Html.LabelFor(model => model.Sujet, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-10">
+        @Html.EditorFor(model => model.Sujet)
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Support, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Support)
+    @Html.LabelFor(model => model.Support, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-10">
+        @Html.EditorFor(model => model.Support)
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Cadre, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Cadre)
+    @Html.LabelFor(model => model.Cadre, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-10">
+        @Html.EditorFor(model => model.Cadre)
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Stockage, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Stockage)
+    @Html.LabelFor(model => model.Stockage, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-10">
+        @Html.EditorFor(model => model.Stockage)
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Taille, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Taille)
+    @Html.LabelFor(model => model.Taille, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-10">
+        @Html.EditorFor(model => model.Taille)
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Poids, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Poids, new { htmlAttributes = new { @class = "form-control col-md-2" } })
-    @Html.ValidationMessageFor(model => model.Poids, "", new { @class = "offset-2" })
+    @Html.LabelFor(model => model.Poids, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-2">
+        @Html.TextBoxFor(model => model.Poids, new { @class = "form-control" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Commentaires, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Commentaires, new { htmlAttributes = new { @class = "form-control col-md-9", maxlength = "32000" } })
-    @Html.ValidationMessageFor(model => model.Commentaires, "", new { @class = "offset-2" })
+    @Html.LabelFor(model => model.Commentaires, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-10">
+        @Html.TextAreaFor(model => model.Commentaires, new { @class = "form-control", maxlength = "32000" })
+    </div>
 </div>

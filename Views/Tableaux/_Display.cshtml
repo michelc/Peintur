@@ -1,57 +1,71 @@
 ﻿@model Peintur.Models.Tableau
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Nom, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Nom, new { @class = "form-control col-md-9", @readonly="" })
+    @Html.LabelFor(model => model.Nom, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-10">
+        @Html.TextBoxFor(model => model.Nom, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Annee, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Annee, new { @class = "form-control col-md-2", @readonly="" })
+    @Html.LabelFor(model => model.Annee, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-2">
+        @Html.TextBoxFor(model => model.Annee, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Technique, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Technique, new { @class = "form-control col-md-3", @readonly="" })
+    @Html.LabelFor(model => model.Technique, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-3">
+        @Html.TextBoxFor(model => model.Technique, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Sujet, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Sujet, new { @class = "form-control col-md-3", @readonly="" })
+    @Html.LabelFor(model => model.Sujet, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-3">
+        @Html.TextBoxFor(model => model.Sujet, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Support, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Support, new { @class = "form-control col-md-3", @readonly="" })
+    @Html.LabelFor(model => model.Support, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-3">
+        @Html.TextBoxFor(model => model.Support, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Cadre, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Cadre, new { @class = "form-control col-md-3", @readonly="" })
+    @Html.LabelFor(model => model.Cadre, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-3">
+        @Html.TextBoxFor(model => model.Cadre, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Stockage, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Stockage, new { @class = "form-control col-md-3", @readonly="" })
+    @Html.LabelFor(model => model.Stockage, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-3">
+        @Html.TextBoxFor(model => model.Stockage, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Taille, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Taille, new { @class = "form-control col-md-3", @readonly="" })
+    @Html.LabelFor(model => model.Taille, new { @class = "col-form-label col-sm-2 pt-0" })
+    <div class="col-sm-3">
+        @Html.TextBoxFor(model => model.Taille, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Points, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Points, new { @class = "form-control col-md-2", @readonly="" })
-    <span class="control-label col-md-7">@Html.Raw(ViewBag.Prix)</span>
+    @Html.LabelFor(model => model.Poids, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-2">
+        @Html.TextBoxFor(model => model.Poids, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>
 
 <div class="form-group row">
-    @Html.LabelFor(model => model.Poids, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Poids, new { @class = "form-control col-md-2", @readonly="" })
-</div>
-
-<div class="form-group row">
-    @Html.LabelFor(model => model.Commentaires, new { @class = "control-label col-md-2" })
-    @Html.TextAreaFor(model => model.Commentaires, new { @class = "form-control col-md-9", @readonly="" })
+    @Html.LabelFor(model => model.Commentaires, new { @class = "col-form-label col-sm-2" })
+    <div class="col-sm-10">
+        @Html.TextAreaFor(model => model.Commentaires, new { @class = "form-control", @readonly = "" })
+    </div>
 </div>

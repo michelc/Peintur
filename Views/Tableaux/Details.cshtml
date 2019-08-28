@@ -12,12 +12,14 @@
         @Html.ActionLink("--»", "Next", new { id = Model.Tableau_ID })
     </span>
 </h2>
+<br class="d-sm-none">
 
 <div class="form-horizontal">
     @Html.Partial("_Display", Model)
 
     <div class="form-group row">
-        <div class="col-md-10 offset-2">
+        <label class="col-form-label col-sm-2"></label>
+        <div class="col-sm-10">
             @Html.ActionLink("Quitter", "Index", null, new { @class = "btn btn-outline-dark" })
             <span class="float-right">
                 @Html.ActionLink("Modifier", "Edit", new { id = Model.Tableau_ID }, new { @class = "btn btn-sm btn-warning" })
