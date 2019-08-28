@@ -116,7 +116,7 @@ namespace Peintur.Controllers
             {
                 Support = "Toile",
                 Cadre = "Non",
-                Poids = "0"
+                Poids = 0
             };
 
             LoadOptions(tableau);

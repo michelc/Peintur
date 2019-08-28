@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using Peintur.Models;
-using StackExchange.Profiling.EntityFramework6;
 
 namespace Peintur
 {
@@ -16,8 +15,6 @@ namespace Peintur
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             AutoMap.Configure();
-
-            MiniProfilerEF6.Initialize();
         }
     }
 }
