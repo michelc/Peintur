@@ -112,7 +112,14 @@ namespace Peintur.Controllers
         // GET: Tableaux/Create
         public ActionResult Create()    
         {
-            LoadOptions();
+            var tableau = new Tableau
+            {
+                Support = "Toile",
+                Cadre = "Non",
+                Poids = "0"
+            };
+
+            LoadOptions(tableau);
             return View();
         }
 
@@ -134,7 +141,7 @@ namespace Peintur.Controllers
                 return RedirectToAction("Index");
             }
 
-            LoadOptions();
+            LoadOptions(tableau);
             return View(tableau);
         }
 
