@@ -79,13 +79,12 @@ namespace Peintur.Models
         public string Taille { get; set; }
 
         public int Points { get; set; }
-        [DataType(DataType.Currency)]
 
         [Display(Name = "Poids (en kg)")]
-        public decimal Poids { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal? Poids { get; set; }
 
         [DataType(DataType.MultilineText)]
         public string Commentaires { get; set; }
-        //The field * "must be a string or array type with a maximum length of '-1'."
     }
 }
