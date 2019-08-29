@@ -72,3 +72,22 @@ textarea {
 .col-form-label {
     font-weight: 600;
 }
+
+.table-responsive-sm table {
+    min-width: 500px !important;
+}
+.w-third {
+    width: 30% !important;
+}
+.w-half {
+    width: 50% !important;
+}
+@media (max-width: 768px) {
+    .w-third {
+        width: 50% !important;
+        min-width: 50% !important;
+    }
+    .w-half {
+        min-width: 60% !important;
+    }
+}

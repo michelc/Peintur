@@ -13,7 +13,7 @@
 
     <thead class="bg-pink">
         <tr>
-            <th scope="col">
+            <th scope="col" class="w-third">
                 @Html.DisplayNameFor(model => model.Nom)
             </th>
             <th scope="col">
@@ -47,7 +47,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td style="width: 30%">
+                <td class="w-third">
                     @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
                     @Html.ActionLink("M", "Edit", new { id = item.Tableau_ID }, new { @class = "badge-pill badge-warning d-print-none" })
                 </td>

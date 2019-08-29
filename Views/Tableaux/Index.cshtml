@@ -13,7 +13,7 @@
 
     <thead class="bg-pink">
         <tr>
-            <th scope="col">
+            <th scope="col" class="w-half">
                 @Html.DisplayNameFor(model => model.Nom)
             </th>
             <th scope="col" class="d-none d-sm-table-cell">
@@ -35,7 +35,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td style="width: 50%">
+                <td class="w-half">
                     @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
                 </td>
                 <td class="d-none d-sm-table-cell">

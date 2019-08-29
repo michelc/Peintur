@@ -13,8 +13,11 @@
 
     <thead class="bg-pink">
         <tr>
-            <th scope="col">
+            <th scope="col" class="w-half">
                 @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th scope="col" class="d-sm-none">
+                @Html.DisplayNameFor(model => model.Points)
             </th>
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Technique)
@@ -22,10 +25,10 @@
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Taille)
             </th>
-            <th scope="col">
+            <th scope="col" class="d-none d-sm-table-cell">
                 @Html.DisplayNameFor(model => model.Cadre)
             </th>
-            <th scope="col">
+            <th scope="col" class="d-none d-sm-table-cell">
                 @Html.DisplayNameFor(model => model.Points)
             </th>
         </tr>
@@ -34,23 +37,26 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td style="width: 50%">
-                    @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Technique)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Taille)
-                </td>
-                <td>
-                    @(item.Cadre == "Non" ? "" : item.Cadre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Points)
-                </td>
-            </tr>
+        <tr>
+            <td class="w-half">
+                @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
+            </td>
+            <td class="d-sm-none">
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Technique)
+            </td>
+            <td>
+                @item.Taille.Replace(" ", "")
+            </td>
+            <td class="d-none d-sm-table-cell">
+                @(item.Cadre == "Non" ? "" : item.Cadre)
+            </td>
+            <td class="d-none d-sm-table-cell">
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+        </tr>
         }
     </tbody>
 
