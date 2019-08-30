@@ -24,6 +24,8 @@ namespace Peintur.Models
 
             config.CreateMap<Tableau, TableauIndex>();
             config.CreateMap<Tableau, TableauPrix>()
+                .ForMember(dest => dest.Cadre, opt => opt.MapFrom(src => src.Cadre == "Non" ? "" : src.Cadre))
+                .ForMember(dest => dest.Taille, opt => opt.MapFrom(src => src.Taille.Replace(" ", "")))
                 .ForMember(dest => dest.Prix, opt => opt.MapFrom(src => src.Points));
             config.CreateMap<Technique, Parametre>();
             config.CreateMap<Sujet, Parametre>();

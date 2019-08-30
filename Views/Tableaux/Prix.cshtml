@@ -48,10 +48,10 @@
                 @Html.DisplayFor(modelItem => item.Technique)
             </td>
             <td>
-                @item.Taille.Replace(" ", "")
+                @Html.DisplayFor(modelItem => item.Taille)
             </td>
             <td class="d-none d-sm-table-cell">
-                @(item.Cadre == "Non" ? "" : item.Cadre)
+                @Html.DisplayFor(modelItem => item.Cadre)
             </td>
             <td class="d-none d-sm-table-cell">
                 @Html.DisplayFor(modelItem => item.Prix)
