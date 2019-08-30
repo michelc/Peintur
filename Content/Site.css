@@ -34,9 +34,9 @@ textarea {
     opacity: 1;
 }
 
-/* Pink for table head background-color */
-.bg-pink {
-    background-color: hotpink;
+/* No border for table header */
+.table th {
+    border-top: none !important;
 }
 
 /* No "valid/success" color for radio buttons label */
