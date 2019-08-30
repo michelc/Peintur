@@ -29,7 +29,8 @@ namespace Peintur.Controllers
         {
             var model = db.Tableaux
                           .OrderBy(t => t.Nom)
-                          .ThenBy(t => t.Tableau_ID);
+                          .ThenBy(t => t.Tableau_ID)
+                          .MapTo<TableauPrint>();
 
             return View(await model.ToListAsync());
         }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Peintur.Models.Tableau>
+﻿@model IEnumerable<Peintur.Models.TableauPrint>
 
 @{
     ViewBag.Title = "Liste des tableaux";
@@ -52,65 +52,49 @@
                     @Html.ActionLink("M", "Edit", new { id = item.Tableau_ID }, new { @class = "badge-pill badge-warning d-print-none" })
                 </td>
                 <td>
-                    @(item.Annee == "1900" ? "" : item.Annee)
+                    @Html.DisplayFor(modelItem => item.Annee)
                 </td>
                 <td>
-                    @(item.Technique == "(autre)" ? "" : item.Technique)
+                    @Html.DisplayFor(modelItem => item.Technique)
                 </td>
                 <td>
-                    @(item.Sujet == "(autre)" ? "" : item.Sujet)
+                    @Html.DisplayFor(modelItem => item.Sujet)
                 </td>
                 <td>
-                    @switch (item.Support)
+                    @if (item.Support == "Toile")
                     {
-                        case "(autre)":
-                            break;
-                        case "Toile":
-                            <span class="text-secondary font-italic">@item.Support</span>
-                            break;
-                        default:
-                            @item.Support
-                            break;
+                        <span class="text-secondary font-italic">@item.Support</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Support)
                     }
                 </td>
                 <td>
-                    @switch (item.Cadre)
+                    @if (item.Cadre == "Non")
                     {
-                        case "(autre)":
-                            break;
-                        case "Non":
-                            <span class="text-secondary font-italic">@item.Cadre</span>
-                            break;
-                        default:
-                            @item.Cadre
-                            break;
+                        <span class="text-secondary font-italic">@item.Cadre</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Cadre)
                     }
                 </td>
                 <td>
-                    @(item.Stockage == "(autre)" ? "" : item.Stockage)
+                    @Html.DisplayFor(modelItem => item.Stockage)
                 </td>
                 <td>
-                    @switch (item.Taille)
+                    @if (item.Taille.StartsWith("!"))
                     {
-                        case "(autre)":
-                            break;
-                        default:
-                            if (item.Points == 0)
-                            {
-                                <span class="font-weight-bolder">@item.Taille.Replace(" ", "")</span>
-                            }
-                            else
-                            {
-                                @item.Taille.Replace(" ", "")
-                            }
-                            break;
+                        <span class="font-weight-bolder">@item.Taille.Substring(1)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Taille)
                     }
                 </td>
                 <td>
-                    @if (!string.IsNullOrEmpty(item.Commentaires))
-                    {
-                        @("*")
-                    }
+                    @Html.DisplayFor(modelItem => item.Commentaires)
                 </td>
             </tr>
         }

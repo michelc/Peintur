@@ -17,6 +17,30 @@ namespace Peintur.Models
         public string Sujet { get; set; }
     }
 
+    public class TableauPrint
+    {
+        public int Tableau_ID { get; set; }
+
+        public string Nom { get; set; }
+
+        [Display(Name = "Année")]
+        public string Annee { get; set; }
+
+        public string Technique { get; set; }
+
+        public string Sujet { get; set; }
+
+        public string Support { get; set; }
+
+        public string Cadre { get; set; }
+
+        public string Stockage { get; set; }
+
+        public string Taille { get; set; }
+
+        public string Commentaires { get; set; }
+    }
+
     public class TableauPrix
     {
         public int Tableau_ID { get; set; }
