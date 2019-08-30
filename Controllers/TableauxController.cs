@@ -116,8 +116,7 @@ namespace Peintur.Controllers
             var tableau = new Tableau
             {
                 Support = "Toile",
-                Cadre = "Non",
-                Poids = 0
+                Cadre = "Non"
             };
 
             LoadOptions(tableau);
