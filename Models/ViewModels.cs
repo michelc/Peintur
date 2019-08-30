@@ -33,20 +33,11 @@ namespace Peintur.Models
         public int Points { get; set; }
     }
 
-
-    public class ParametreIndex
-    {
-        public int ID { get; set; }
-
-        public string Nom { get; set; }
-        public int? Valeur { get; set; }
-    }
-
     public class ParametreModel
     {
         public string Type { get; set; }
 
-        public List<ParametreIndex> Parametres { get; set; }
+        public List<Parametre> Parametres { get; set; }
 
         public int ID { get; set; }
 

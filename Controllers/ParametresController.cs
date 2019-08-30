@@ -30,7 +30,7 @@ namespace Peintur.Controllers
         {
             var model = db.Set<T>()
                           .OrderBy(p => p.Nom)
-                          .MapTo<ParametreIndex>();
+                          .MapTo<Parametre>();
 
             ViewModel.Parametres = await model.ToListAsync();
             if (ViewModel.Type == "côte")

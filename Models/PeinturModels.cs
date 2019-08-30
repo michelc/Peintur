@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Peintur.Models
 {
-    public abstract class Parametre : IParametre
+    public class Parametre
     {
         [Key]
         public int ID { get; set; }
@@ -15,17 +14,8 @@ namespace Peintur.Models
         public int? Valeur { get; set; }
 
     }
-    public interface IParametre
-    {
-        int ID { get; set; }
 
-        string Nom { get; set; }
-
-        int? Valeur { get; set; }
-
-    }
-
-    public class Technique : Parametre, IParametre { }
+    public class Technique : Parametre { }
     public class Sujet : Parametre { }
     public class Support : Parametre { }
     public class Cadre : Parametre { }

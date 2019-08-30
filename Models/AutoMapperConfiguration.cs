@@ -24,13 +24,13 @@ namespace Peintur.Models
 
             config.CreateMap<Tableau, TableauIndex>();
             config.CreateMap<Tableau, TableauPrix>();
-            config.CreateMap<Technique, ParametreIndex>();
-            config.CreateMap<Sujet, ParametreIndex>();
-            config.CreateMap<Support, ParametreIndex>();
-            config.CreateMap<Cadre, ParametreIndex>();
-            config.CreateMap<Stockage, ParametreIndex>();
-            config.CreateMap<Taille, ParametreIndex>();
-            config.CreateMap<Cote, ParametreIndex>();
+            config.CreateMap<Technique, Parametre>();
+            config.CreateMap<Sujet, Parametre>();
+            config.CreateMap<Support, Parametre>();
+            config.CreateMap<Cadre, Parametre>();
+            config.CreateMap<Stockage, Parametre>();
+            config.CreateMap<Taille, Parametre>();
+            config.CreateMap<Cote, Parametre>();
         }
 
         public static IQueryable<T> MapTo<T>(this IQueryable<object> linq)
