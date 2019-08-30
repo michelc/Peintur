@@ -45,7 +45,7 @@ namespace Peintur.Controllers
                           .ToListAsync();
 
             var cote = await db.Cotes.FirstOrDefaultAsync(x => x.Nom.StartsWith("Officiel"));
-            model.ForEach(x => x.Points = x.Points * cote.Valeur.Value);
+            model.ForEach(x => x.Prix *= cote.Valeur.Value);
 
             return View(model);
         }

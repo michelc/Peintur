@@ -17,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.Nom)
             </th>
             <th scope="col" class="d-sm-none">
-                @Html.DisplayNameFor(model => model.Points)
+                @Html.DisplayNameFor(model => model.Prix)
             </th>
             <th scope="col">
                 @Html.DisplayNameFor(model => model.Technique)
@@ -29,7 +29,7 @@
                 @Html.DisplayNameFor(model => model.Cadre)
             </th>
             <th scope="col" class="d-none d-sm-table-cell">
-                @Html.DisplayNameFor(model => model.Points)
+                @Html.DisplayNameFor(model => model.Prix)
             </th>
         </tr>
     </thead>
@@ -42,7 +42,7 @@
                 @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
             </td>
             <td class="d-sm-none">
-                @Html.DisplayFor(modelItem => item.Points)
+                @Html.DisplayFor(modelItem => item.Prix)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Technique)
@@ -54,7 +54,7 @@
                 @(item.Cadre == "Non" ? "" : item.Cadre)
             </td>
             <td class="d-none d-sm-table-cell">
-                @Html.DisplayFor(modelItem => item.Points)
+                @Html.DisplayFor(modelItem => item.Prix)
             </td>
         </tr>
         }
