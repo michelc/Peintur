@@ -5,49 +5,49 @@
 }
 
 <h2>
-    @(ViewBag.Title + " (" + Model.Parametres.Count().ToString() + ")")
+    @ViewBag.Title (@Model.Parametres.Count())
 </h2>
 
 <div class="table-responsive-sm">
-<table class="table table-hover">
+    <table class="table table-hover">
 
-    <thead>
-        <tr>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            @if (Model.Complement != null)
-            {
-                <th>
-                    @Model.Complement
-                </th>
-            }
-            <th class="d-print-none">
-                @Html.ActionLink("Ajouter", "Create", null, new { @class = "btn btn-sm btn-success" })
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var item in Model.Parametres)
-        {
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nom)
-                </td>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
                 @if (Model.Complement != null)
                 {
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Valeur)
-                    </td>
+                    <th>
+                        @Model.Complement
+                    </th>
                 }
-                <td class="d-print-none">
-                    @Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-sm btn-warning" })
-                    @Html.ActionLink("Effacer", "Delete", new { id = item.ID }, new { @class = "btn btn-sm btn-danger" })
-                </td>
+                <th class="d-print-none">
+                    @Html.ActionLink("Ajouter", "Create", null, new { @class = "btn btn-sm btn-success" })
+                </th>
             </tr>
-        }
-    </tbody>
+        </thead>
 
-</table>
+        <tbody>
+            @foreach (var item in Model.Parametres)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    @if (Model.Complement != null)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valeur)
+                        </td>
+                    }
+                    <td class="d-print-none">
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-sm btn-warning" })
+                        @Html.ActionLink("Effacer", "Delete", new { id = item.ID }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
 </div>

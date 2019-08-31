@@ -5,54 +5,54 @@
 }
 
 <h2>
-    @(ViewBag.Title + " (" + Model.Count().ToString() + ")")
+    @ViewBag.Title (@Model.Count())
 </h2>
 
 <div class="table-responsive-sm">
-<table class="table table-hover">
+    <table class="table table-hover">
 
-    <thead>
-        <tr>
-            <th scope="col" class="w-half">
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            <th scope="col" class="d-none d-sm-table-cell">
-                @Html.DisplayNameFor(model => model.Annee)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Technique)
-            </th>
-            <th scope="col" class="d-none d-sm-table-cell">
-                @Html.DisplayNameFor(model => model.Sujet)
-            </th>
-            <th class="d-print-none">
-                @Html.ActionLink("Ajouter", "Create", null, new { @class = "btn btn-sm btn-success" })
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var item in Model)
-        {
+        <thead>
             <tr>
-                <td class="w-half">
-                    @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
-                </td>
-                <td class="d-none d-sm-table-cell">
-                    @Html.DisplayFor(modelItem => item.Annee)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Technique)
-                </td>
-                <td class="d-none d-sm-table-cell">
-                    @Html.DisplayFor(modelItem => item.Sujet)
-                </td>
-                <td class="d-print-none">
-                    @Html.ActionLink("Modifier", "Edit", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-warning" })
-                </td>
+                <th scope="col" class="w-half">
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th scope="col" class="d-none d-sm-table-cell">
+                    @Html.DisplayNameFor(model => model.Annee)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Technique)
+                </th>
+                <th scope="col" class="d-none d-sm-table-cell">
+                    @Html.DisplayNameFor(model => model.Sujet)
+                </th>
+                <th class="d-print-none">
+                    @Html.ActionLink("Ajouter", "Create", null, new { @class = "btn btn-sm btn-success" })
+                </th>
             </tr>
-        }
-    </tbody>
+        </thead>
 
-</table>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="w-half">
+                        @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
+                    </td>
+                    <td class="d-none d-sm-table-cell">
+                        @Html.DisplayFor(modelItem => item.Annee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Technique)
+                    </td>
+                    <td class="d-none d-sm-table-cell">
+                        @Html.DisplayFor(modelItem => item.Sujet)
+                    </td>
+                    <td class="d-print-none">
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.Tableau_ID }, new { @class = "btn btn-sm btn-warning" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
 </div>

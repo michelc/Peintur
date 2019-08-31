@@ -5,102 +5,102 @@
 }
 
 <h2>
-    @(ViewBag.Title + " (" + Model.Count().ToString() + ")")
+    @ViewBag.Title (@Model.Count())
 </h2>
 
 <div class="input-group mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text" id="filter">Filtrer</span>
     </div>
-    <input type="text" class="form-control table-filter" data-table="liste-prix" placeholder="Texte pour filtrer..." aria-label="Filtre" aria-describedby="filter">
+    <input type="text" class="form-control table-filter" data-table="table" placeholder="Texte pour filtrer..." aria-label="Filtre" aria-describedby="filter">
 </div>
 
 <div class="table-responsive-sm">
-<table class="table table-hover small liste-prix">
+    <table class="table table-hover small">
 
-    <thead>
-        <tr>
-            <th scope="col" class="w-third">
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Annee)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Technique)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Sujet)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Support)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Cadre)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Stockage)
-            </th>
-            <th scope="col">
-                Taille
-            </th>
-            <th scope="col">
-
-            </th>
-        </tr>
-    </thead>
-
-    <tbody class="">
-        @foreach (var item in Model)
-        {
+        <thead>
             <tr>
-                <td class="w-third">
-                    @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
-                    @Html.ActionLink("M", "Edit", new { id = item.Tableau_ID }, new { @class = "badge-pill badge-warning d-print-none" })
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Annee)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Technique)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sujet)
-                </td>
-                <td>
-                    @if (item.Support == "Toile")
-                    {
-                        <span class="text-secondary font-italic">@item.Support</span>
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.Support)
-                    }
-                </td>
-                <td>
-                    @if (item.Cadre == "Non")
-                    {
-                        <span class="text-secondary font-italic">@item.Cadre</span>
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.Cadre)
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stockage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Taille)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Commentaires)
-                </td>
-            </tr>
-        }
-    </tbody>
+                <th scope="col" class="w-third">
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Annee)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Technique)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Sujet)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Support)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Cadre)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Stockage)
+                </th>
+                <th scope="col">
+                    Taille
+                </th>
+                <th scope="col">
 
-</table>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody class="">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="w-third">
+                        @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
+                        @Html.ActionLink("M", "Edit", new { id = item.Tableau_ID }, new { @class = "badge-pill badge-warning d-print-none" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Annee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Technique)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sujet)
+                    </td>
+                    <td>
+                        @if (item.Support == "Toile")
+                        {
+                            <span class="text-secondary font-italic">@item.Support</span>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Support)
+                        }
+                    </td>
+                    <td>
+                        @if (item.Cadre == "Non")
+                        {
+                            <span class="text-secondary font-italic">@item.Cadre</span>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Cadre)
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stockage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Taille)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Commentaires)
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
 </div>
 
 @section JavaScript

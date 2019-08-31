@@ -5,60 +5,60 @@
 }
 
 <h2>
-    @(ViewBag.Title + " (" + Model.Count().ToString() + ")")
+    @ViewBag.Title (@Model.Count())
 </h2>
 
 <div class="table-responsive-sm">
-<table class="table table-hover">
+    <table class="table table-hover">
 
-    <thead>
-        <tr>
-            <th scope="col" class="w-half">
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            <th scope="col" class="d-sm-none">
-                @Html.DisplayNameFor(model => model.Prix)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Technique)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Taille)
-            </th>
-            <th scope="col" class="d-none d-sm-table-cell">
-                @Html.DisplayNameFor(model => model.Cadre)
-            </th>
-            <th scope="col" class="d-none d-sm-table-cell">
-                @Html.DisplayNameFor(model => model.Prix)
-            </th>
-        </tr>
-    </thead>
+        <thead>
+            <tr>
+                <th scope="col" class="w-half">
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th scope="col" class="d-sm-none">
+                    @Html.DisplayNameFor(model => model.Prix)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Technique)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Taille)
+                </th>
+                <th scope="col" class="d-none d-sm-table-cell">
+                    @Html.DisplayNameFor(model => model.Cadre)
+                </th>
+                <th scope="col" class="d-none d-sm-table-cell">
+                    @Html.DisplayNameFor(model => model.Prix)
+                </th>
+            </tr>
+        </thead>
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td class="w-half">
-                @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
-            </td>
-            <td class="d-sm-none">
-                @Html.DisplayFor(modelItem => item.Prix)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Technique)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Taille)
-            </td>
-            <td class="d-none d-sm-table-cell">
-                @Html.DisplayFor(modelItem => item.Cadre)
-            </td>
-            <td class="d-none d-sm-table-cell">
-                @Html.DisplayFor(modelItem => item.Prix)
-            </td>
-        </tr>
-        }
-    </tbody>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="w-half">
+                        @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
+                    </td>
+                    <td class="d-sm-none">
+                        @Html.DisplayFor(modelItem => item.Prix)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Technique)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Taille)
+                    </td>
+                    <td class="d-none d-sm-table-cell">
+                        @Html.DisplayFor(modelItem => item.Cadre)
+                    </td>
+                    <td class="d-none d-sm-table-cell">
+                        @Html.DisplayFor(modelItem => item.Prix)
+                    </td>
+                </tr>
+            }
+        </tbody>
 
-</table>
+    </table>
 </div>
