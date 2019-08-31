@@ -84,14 +84,7 @@
                     @Html.DisplayFor(modelItem => item.Stockage)
                 </td>
                 <td>
-                    @if (item.Taille.StartsWith("!"))
-                    {
-                        <span class="font-weight-bolder">@item.Taille.Substring(1)</span>
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.Taille)
-                    }
+                    @Html.DisplayFor(modelItem => item.Taille)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Commentaires)
