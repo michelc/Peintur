@@ -9,8 +9,9 @@
         var search;
 
         function onInputEvent(e) {
-            search = e.target.value.toLowerCase();
-            var tables = document.getElementsByClassName(e.target.getAttribute("data-table"));
+            var input = e ? e.target : this;
+            search = input.value.toLowerCase();
+            var tables = document.getElementsByClassName(input.getAttribute("data-table"));
             Arr.forEach.call(tables, function (table) {
                 Arr.forEach.call(table.tBodies, function (tbody) {
                     Arr.forEach.call(tbody.rows, filter);
@@ -28,6 +29,7 @@
                 var inputs = document.getElementsByClassName("table-filter");
                 Arr.forEach.call(inputs, function (input) {
                     input.oninput = onInputEvent;
+                    if (input.value !== "") input.oninput();
                 });
             }
         };
