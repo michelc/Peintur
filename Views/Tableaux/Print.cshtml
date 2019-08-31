@@ -8,8 +8,15 @@
     @(ViewBag.Title + " (" + Model.Count().ToString() + ")")
 </h2>
 
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="filter">Filtrer</span>
+    </div>
+    <input type="text" class="form-control table-filter" data-table="liste-prix" placeholder="Texte pour filtrer..." aria-label="Filtre" aria-describedby="filter">
+</div>
+
 <div class="table-responsive-sm">
-<table class="table table-hover small order-table">
+<table class="table table-hover small liste-prix">
 
     <thead>
         <tr>
@@ -95,3 +102,8 @@
 
 </table>
 </div>
+
+@section JavaScript
+{
+    <script src="~/Scripts/table-filter.js"></script>
+}
