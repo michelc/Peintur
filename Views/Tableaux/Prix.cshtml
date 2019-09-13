@@ -15,22 +15,22 @@
 
         <thead>
             <tr>
-                <th scope="col" class="w-half">
+                <th scope="col" class="w-half" data-sort="string-ins">
                     @Html.DisplayNameFor(model => model.Nom)
                 </th>
-                <th scope="col" class="d-sm-none">
+                <th scope="col" class="d-sm-none" data-sort="int">
                     @Html.DisplayNameFor(model => model.Prix)
                 </th>
-                <th scope="col">
+                <th scope="col" data-sort="string-ins">
                     @Html.DisplayNameFor(model => model.Technique)
                 </th>
-                <th scope="col">
+                <th scope="col" data-sort="string-ins">
                     @Html.DisplayNameFor(model => model.Taille)
                 </th>
-                <th scope="col" class="d-none d-sm-table-cell">
+                <th scope="col" class="d-none d-sm-table-cell" data-sort="string-ins">
                     @Html.DisplayNameFor(model => model.Cadre)
                 </th>
-                <th scope="col" class="d-none d-sm-table-cell">
+                <th scope="col" class="d-none d-sm-table-cell" data-sort="int">
                     @Html.DisplayNameFor(model => model.Prix)
                 </th>
             </tr>
@@ -67,5 +67,5 @@
 
 @section JavaScript
 {
-    <script src="~/Scripts/table-filter.js"></script>
+    @Html.Partial("_TableScripts")
 }
