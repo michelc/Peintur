@@ -8,12 +8,7 @@
     @ViewBag.Title (<span id="count">@Model.Count()</span>)
 </h2>
 
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="filter">Filtrer</span>
-    </div>
-    <input type="text" class="form-control table-filter" data-table="table" data-count="#count" placeholder="Texte pour filtrer..." aria-label="Filtre" aria-describedby="filter">
-</div>
+@Html.Partial("_Filter")
 
 <div class="table-responsive-sm">
     <table class="table table-hover">
