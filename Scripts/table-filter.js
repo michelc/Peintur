@@ -15,7 +15,7 @@
         function onInputEvent(e) {
             // Récupère le texte à rechercher
             var input = e ? e.target : this;
-            search = input.value.toLowerCase();
+            search = input.value.toLocaleLowerCase();
             // Retrouve les lignes où effectuer la recherche
             // (l'attribut data-table de l'input sert à identifier la table à filtrer)
             var selector = input.getAttribute("data-table") + " tbody tr";
@@ -35,7 +35,7 @@
 
         function filter(row) {
             // Mise en cache de la ligne en minuscule
-            if (!row.lower) row.lower = row.textContent.toLowerCase();
+            if (row.lower === undefined) row.lower = row.textContent.toLocaleLowerCase();
             // Masque la ligne si elle ne contient pas le texte recherché
             row.style.display = row.lower.indexOf(search) === -1 ? "none" : "table-row";
         }
