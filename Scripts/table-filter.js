@@ -22,6 +22,15 @@
             var rows = dquery(selector);
             // Recherche le texte demandé sur les lignes du tableau
             [].forEach.call(rows, filter);
+            // Mise à jour du compteur de ligne (s'il y en a un de défini)
+            // (l'attribut data-count de l'input sert à identifier l'élément où afficher le compteur)
+            var writer = input.getAttribute("data-count");
+            if (writer) {
+                // S'il existe un attribut data-count, on compte les lignes visibles
+                var count = rows.reduce(function (t, x) { return t + (x.style.display === "none" ? 0 : 1); }, 0);
+                // Puis on affiche le compteur
+                dquery(writer)[0].textContent = count;
+            }
         }
 
         function filter(row) {
