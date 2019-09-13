@@ -15,6 +15,9 @@
 
         <thead>
             <tr>
+                <th class="d-print-none d-none d-sm-table-cell" data-sort="int">
+                    Id
+                </th>
                 <th scope="col" class="w-half" data-sort="string-ins">
                     @Html.DisplayNameFor(model => model.Nom)
                 </th>
@@ -37,6 +40,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td class="d-print-none d-none d-sm-table-cell">
+                        <span class="text-secondary font-xx-small">@Html.DisplayFor(modelItem => item.Tableau_ID)</span>
+                    </td>
                     <td class="w-half">
                         @Html.ActionLink(item.Nom, "Details", new { id = item.Tableau_ID })
                     </td>

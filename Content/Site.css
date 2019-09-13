@@ -91,3 +91,8 @@ textarea {
         min-width: 60% !important;
     }
 }
+
+/* Microscopic font-size to display ids */
+.font-xx-small {
+    font-size: xx-small;
+}
