@@ -20,8 +20,8 @@
         }
 
         function filter(row) {
-            var text = row.textContent.toLowerCase();
-            row.style.display = text.indexOf(search) === -1 ? "none" : "table-row";
+            if (!row.lower) row.lower = row.textContent.toLowerCase();
+            row.style.display = row.lower.indexOf(search) === -1 ? "none" : "table-row";
         }
 
         return {
