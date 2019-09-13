@@ -5,18 +5,18 @@
     "use strict";
 
     var TableFilter = (function () {
-        var Arr = Array.prototype;
         var search;
+
+        function dquery(selector) {
+            return Array.prototype.slice.call(document.querySelectorAll(selector));
+        }
 
         function onInputEvent(e) {
             var input = e ? e.target : this;
             search = input.value.toLowerCase();
-            var tables = document.getElementsByClassName(input.getAttribute("data-table"));
-            Arr.forEach.call(tables, function (table) {
-                Arr.forEach.call(table.tBodies, function (tbody) {
-                    Arr.forEach.call(tbody.rows, filter);
-                });
-            });
+            var selector = input.getAttribute("data-table") + " tbody tr";
+            var rows = dquery(selector);
+            [].forEach.call(rows, filter);
         }
 
         function filter(row) {
@@ -26,8 +26,8 @@
 
         return {
             init: function () {
-                var inputs = document.getElementsByClassName("table-filter");
-                Arr.forEach.call(inputs, function (input) {
+                var inputs = dquery(".table-filter");
+                [].forEach.call(inputs, function (input) {
                     input.oninput = onInputEvent;
                     if (input.value !== "") input.oninput();
                 });
