@@ -42,12 +42,12 @@
 
         return {
             init: function () {
-                // Liste des champs de saisie avec une classe table-filter
-                var inputs = dquery(".table-filter");
+                // Liste des champs de saisie avec un attribut data-table
+                var inputs = dquery("input[data-table]");
                 [].forEach.call(inputs, function (input) {
                     // Déclenche la recherche dès qu'on saisi un filtre de recherche
                     input.oninput = onInputEvent;
-                    // Si on a déjà une valeur (suite à navigatin arrière), on relance la recherche
+                    // Si on a déjà une valeur (suite à navigation arrière), on relance la recherche
                     if (input.value !== "") input.oninput();
                 });
             }
