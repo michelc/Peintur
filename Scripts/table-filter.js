@@ -14,7 +14,7 @@
 
         function onInputEvent(e) {
             // Récupère le texte à rechercher
-            var input = e ? e.target : this;
+            var input = e.target;
             search = input.value.toLocaleLowerCase();
             // Retrouve les lignes où effectuer la recherche
             // (l'attribut data-table de l'input sert à identifier la table à filtrer)
@@ -35,9 +35,10 @@
 
         function filter(row) {
             // Mise en cache de la ligne en minuscule
-            if (row.lower === undefined) row.lower = row.textContent.toLocaleLowerCase();
+            if (row.lowerTextContent === undefined)
+                row.lowerTextContent = row.textContent.toLocaleLowerCase();
             // Masque la ligne si elle ne contient pas le texte recherché
-            row.style.display = row.lower.indexOf(search) === -1 ? "none" : "table-row";
+            row.style.display = row.lowerTextContent.indexOf(search) === -1 ? "none" : "table-row";
         }
 
         return {
@@ -48,7 +49,7 @@
                     // Déclenche la recherche dès qu'on saisi un filtre de recherche
                     input.oninput = onInputEvent;
                     // Si on a déjà une valeur (suite à navigation arrière), on relance la recherche
-                    if (input.value !== "") input.oninput();
+                    if (input.value !== "") input.oninput({ target: input });
                 });
             }
         };
