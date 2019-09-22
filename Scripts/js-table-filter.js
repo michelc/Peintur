@@ -1,5 +1,4 @@
 // Vanilla JS table filter
-// Source: https://codepen.io/priyankamalviya/pen/zzWZEa
 
 (function () {
     "use strict";

@@ -156,9 +156,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\js-navbar-toggler.js" />
+    <Content Include="Scripts\js-table-filter.js" />
     <Content Include="Scripts\stupidtable.js" />
     <Content Include="Scripts\stupidtable.min.js" />
-    <Content Include="Scripts\table-filter.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
